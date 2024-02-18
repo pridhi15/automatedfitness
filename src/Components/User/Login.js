@@ -3,7 +3,7 @@ import classes from './Login.module.css';
 
 function Login() {
     const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('')
+    const [password, setPassword] = useState('');
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -16,6 +16,28 @@ function Login() {
         event.preventDefault();
         console.log("Username:", username);
         console.log("Password:", password);
+
+        fetch("http://localhost:5000", {
+            method: "POST",
+            crossDomain: true,
+            headers: {
+                "Content-Type":"application/json",
+                Accept:"application/json",
+                "Access-Control-Allow-Origin":"*",
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password,
+            })
+        }).then(res => res.json())
+        .then(data => {
+            console.log(data, "user login");
+            if(data.status == "ok"){
+                console.log("Login successful !")
+            }else alert("something went wrong !");
+        }).catch(err => {
+            console.log(err);
+        })
         setUsername('');
         setPassword('');
     }
