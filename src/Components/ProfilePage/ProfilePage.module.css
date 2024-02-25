@@ -1,0 +1,110 @@
+/* .inputfield{
+    display: none;
+} */
+
+.profilepage {
+    /* margin: 20px; */
+    /* border: 1px solid red; */
+    background-color: rgb(235, 252, 250);
+}
+
+.profilephoto {
+    width: 20%;
+    margin-left: 43%;
+}
+
+.username {
+    width: 20%;
+    margin-left: 42%;
+    font-size: 20px;
+}
+.image {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.profileheader {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: center;
+}
+
+.getdetails {
+    background-color: #40B554;
+    color: white;
+    padding: 0.8rem;
+    font-size: 1.7rem;
+    margin-left: 35%;
+    margin-right: 44%;
+    width: 30%;
+    margin-top: 0.6rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.getdetails:hover {
+    background-color: #308b45; /* darker shade for hover */
+}
+
+.getdetails:active {
+    background-color: #207635; /* even darker shade for active state */
+}
+
+.getdetails:focus {
+    outline: none; /* remove default focus outline */
+    box-shadow: 0 0 0 3px rgba(64, 181, 84, 0.5); /* add custom focus border */
+}
+
+.userdetails {
+    display: flex;
+    margin-top: 50px;
+    width: 87%;
+    margin-left: 350px;
+    margin-bottom: 50px;    
+}
+
+.firstDetails {
+    width: 35%;
+}
+.secondDetails {
+    width: 55%;
+    margin-left: 90px;
+}
+
+.singleDetails {
+    display: flex;
+}
+
+.rowheading {
+    width: 40%; 
+    font-size: 25px;
+    font-weight: 700;
+    text-align: left;
+    padding-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: brown;
+}
+
+.rowvalue {
+    width: 50%;
+}
+
+.rowvalueaddress {
+    width: 100%;
+}
+
+.secondDetails span {
+    width: 200px;
+}
+
+p {
+    font-size: 25px;
+    margin-top: 5px;
+    font-weight: 700;   
+    color: #07a777  ;
+}

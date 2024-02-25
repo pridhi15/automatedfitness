@@ -1,16 +1,16 @@
 import React, {useState} from "react";
 import classes from './SignUp.module.css';
 
-function SignUp() {
+function SignUp(props) {
 
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [City, setEnteredCity] = useState("");
-    const [Country, setEnteredCountry] = useState("");
-    const [address, setAddress] = useState("");
-    const [mobilenumber, setMobileNumber] = useState("");
+    let [username, setUsername] = useState('');
+    let [email, setEmail] = useState('');
+    let [password, setPassword] = useState('');
+    let [confirmPassword, setConfirmPassword] = useState('');
+    let [City, setEnteredCity] = useState("");
+    let [Country, setEnteredCountry] = useState("");
+    let [address, setAddress] = useState("");
+    let [mobilenumber, setMobileNumber] = useState("");
 
     const handlePhoneNumberChange = (event) => {
         setMobileNumber(event.target.value);
@@ -50,7 +50,7 @@ function SignUp() {
         // console.log(username);
         if(password === confirmPassword) {
           console.log("yes");
-          fetch("http://localhost:5000/", {
+          fetch("http://localhost:5000/signup", {
             method: "POST",
             // crossDomain:true,
             headers: {
@@ -64,6 +64,10 @@ function SignUp() {
             console.log(data, "user registration");
             if(data.status == "saved"){
               alert("Registration successful");
+              props.setUsername(username);
+              console.log(username);
+              props.setLoggedIn(1);
+              console.log(props.loggedIn);
             }else{
               alert("Something went wrong !!");
             }
@@ -95,36 +99,37 @@ function SignUp() {
         <div> 
             <div className={classes.heading}>SignUp Page</div>
             <hr style={hrstyle}></hr>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} method="POST">
                 <div className={classes.field}>
                     <div className={classes.name}><label>Username : </label></div>
-                    <div className={classes.enter}><input className={classes.inp} placeholder="username..." name="username" type="text" onChange={handleUsernameChange}/></div>
+                    <div className={classes.enter}><input className={classes.inp} placeholder="username..." value={username} name="username" type="text" onChange={handleUsernameChange}/></div>
                 </div>
                 <div className={classes.field}>
                     <div className={classes.name}><label>Email : </label></div>
-                    <div className={classes.enter}><input className={classes.inp} placeholder="email..." name="email" type="email" onChange={handleEmailChange}/></div>
+                    <div className={classes.enter}><input className={classes.inp} placeholder="email..." value={email} name="email" type="email" onChange={handleEmailChange}/></div>
                 </div>
                 <div className={classes.field}>
                     <div className={classes.name}><label>Password : </label></div>
-                    <div className={classes.enter}><input className={classes.inp} placeholder="password..." name="password" type="password" onChange={handlePasswordChange}/></div>
+                    <div className={classes.enter}><input className={classes.inp} placeholder="password..." value={password} name="password" type="password" onChange={handlePasswordChange}/></div>
                 </div>
 
                 <div className={classes.field}>
                     <div className={classes.name}><label>Confirm Password : </label></div>
-                    <div className={classes.enter}><input className={classes.inp} placeholder="confirm password..." name="confirmpassword" type="password" onChange={handleConfirmPasswordChange}/></div>
+                    <div className={classes.enter}><input className={classes.inp} placeholder="confirm password..." value={confirmPassword} name="confirmpassword" type="password" onChange={handleConfirmPasswordChange}/></div>
                 </div>
                 <div className={classes.field}>
                     <div className={classes.name}><label>City : </label></div>
-                    <div className={classes.enter}><input className={classes.inp} placeholder="city..." name="city" type="text" onChange={handleCityChange}/></div>
+                    <div className={classes.enter}><input className={classes.inp} placeholder="city..." value={City} name="city" type="text" onChange={handleCityChange}/></div>
                 </div>
                 <div className={classes.field}>
                     <div className={classes.name}><label>Country : </label></div>
-                    <div className={classes.enter}><input className={classes.inp} placeholder="country..." name="country" type="text" onChange={handleCountryChange}/></div>
+                    <div className={classes.enter}><input className={classes.inp} placeholder="country..." value={Country} name="country" type="text" onChange={handleCountryChange}/></div>
                 </div>
 
                 <div className={classes.field}> 
                 <div className={classes.name}><label>Street Address : </label></div>
                 <div className={classes.enter}> <input  className={classes.inp}  placeholder='enter street address...'
+                        value={address}
                         name="address"
                         type="text"
                         onChange={handleAddressChange} />
@@ -134,6 +139,7 @@ function SignUp() {
                 <div className={classes.field}>
                 <div className={classes.name}><label>Mobile Number : </label></div>
                 <div className={classes.enter}> <input  className={classes.inp}  placeholder='Phone number...'
+                        value={mobilenumber}
                         name="mobilenumber"
                         type="text"
                         onChange={handlePhoneNumberChange} />

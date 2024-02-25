@@ -1,4 +1,12 @@
-.heading{
+.bmiform {
+    width: 40%;
+    margin-left: 30px;
+    margin-right: 50px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.headingdata{
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -8,6 +16,7 @@
     font-family: sans-serif;
     font-weight: bold;
 }
+
 
 .field{
     width: 50%;
@@ -36,55 +45,43 @@
     padding-left: 1rem;
 }
 
-.signIn {
+.bmi {
     background-color: #40B554;
     color: white;
     padding: 0.8rem;
     font-size: 1.7rem;
-    margin-left: 46%;
+    margin-left: 39%;
     margin-right: 44%;
-    width: 7%;
-    margin-top: 0.6rem;
+    width: 25%;
+    margin-top: 1.3rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
     border: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.signIn:hover {
+.bmi:hover {
     background-color: #308b45; /* darker shade for hover */
 }
 
-.signIn:active {
+.bmi:active {
     background-color: #207635; /* even darker shade for active state */
 }
 
-.signIn:focus {
+.bmi:focus {
     outline: none; /* remove default focus outline */
     box-shadow: 0 0 0 3px rgba(64, 181, 84, 0.5); /* add custom focus border */
 }
 
-.anotheroption {
-    margin-left: 40%;
-    width: 60%;
-}
-.content {
-    font-size: 20px;
-    font-family: sans-serif;
-    font-weight: bold;
-    color: rgb(8, 25, 119);
+.resultheading {
+    text-align: center;
+    color: #308b45;
+    text-decoration: underline;
 }
 
-.login {
-    width: 13%;
-    color: white;
-    background-color: #40B554;
-    font-size: 1.7rem;
-    border: none;
-    border-radius: 1rem;
-    margin: 5px;
-    padding-top: 12px;
-    padding-bottom: 12px;
- 
-    
+.result {
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
 }

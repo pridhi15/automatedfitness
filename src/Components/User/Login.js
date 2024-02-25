@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import classes from './Login.module.css';
+import { Link } from "react-router-dom";
 
-function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+function Login(props) {
+    let [username, setUsername] = useState('');
+    let [password, setPassword] = useState('');
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -14,10 +15,11 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        console.log(event.target.value);
         console.log("Username:", username);
         console.log("Password:", password);
 
-        fetch("http://localhost:5000", {
+        fetch("http://localhost:5000/login", {
             method: "POST",
             crossDomain: true,
             headers: {
@@ -32,14 +34,19 @@ function Login() {
         }).then(res => res.json())
         .then(data => {
             console.log(data, "user login");
-            if(data.status == "ok"){
+            setUsername('');
+            setPassword('');
+            if(data.status === "ok"){
                 console.log("Login successful !")
+                props.setUsername(data.data.username);
+                props.setLoggedIn(1);
+                console.log(props.loggedIn);
             }else alert("something went wrong !");
         }).catch(err => {
             console.log(err);
+            setUsername('');
+            setPassword('');
         })
-        setUsername('');
-        setPassword('');
     }
 
     const hrstyle = {
@@ -57,17 +64,18 @@ function Login() {
             <div className={classes.field}>
                 <div className={classes.name}><label>Username : </label></div>
                 <div className={classes.enter}>
-                    <input className={classes.inp} placeholder="username..." name="username" type="text" onChange={handleUsernameChange} autoComplete="off"/>
+                    <input className={classes.inp} placeholder="username..." value={username} name="username" type="text" onChange={handleUsernameChange} autoComplete="off"/>
                 </div>
             </div>
             <div className={classes.field}>
                 <div className={classes.name}><label>Password : </label></div>
                 <div className={classes.enter}>
-                    <input className={classes.inp} placeholder="password..." name="password" type="password" onChange={handlePasswordChange} autoComplete="off"/>
+                    <input className={classes.inp} placeholder="password..." value={password} name="password" type="password" onChange={handlePasswordChange} autoComplete="off"/>
                 </div>
             </div>
             <br />
             <button className={classes.signIn} type="submit">Sign In</button>
+            <p className={classes.anotheroption}><span className={classes.content}>Don't have an account ? </span><Link to='/Signup'><button className={classes.login}>Sign up</button></Link></p>
             </form>
         </div>
     )

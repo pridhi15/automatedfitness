@@ -1,18 +1,40 @@
-.heading{
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    text-decoration: underline;
-    color: green;
-    font-family: sans-serif;
+.main_contactform {
+    margin: 30px;
+    width: 50%;
+    /* border: 1px solid red; */
+}
+
+.contactform {
+    margin: 20px;
+    margin-top: 20px;
+    /* border: 1px solid red; */
+}
+
+.formheading {
+    margin-left: 40px;
+    font-size: 30px;
     font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(7, 60, 139);
+}
+
+.formsubheading {
+    margin-left: 40px;
+    font-size: 20px;
+    margin-top: -15px;
+    font-weight: 500;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #9427dd;    
+}
+
+.heading{
+    align-items: left;
 }
 
 .field{
-    width: 50%;
-    margin-left: 32%;
-    margin-right: 10%;
+    width: 100%;
+    margin-left: 40px;
+    /* margin-right: 4%; */
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -30,20 +52,33 @@
     margin-top: 0.2rem;
     margin-bottom: 0.3rem;
     width:70%;
+    height: 25px;
     border-radius: 0.3rem;
     padding-top:0.4rem ;
     padding-bottom: 0.4rem;
     padding-left: 1rem;
 }
 
+.input {
+    
+    font-size:1.5rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.3rem;
+    width:70%;
+    height: 200px;
+    border-radius: 0.3rem;
+    padding-top:0.4rem ;
+    padding-bottom: 0.4rem;
+    padding-left: 1rem;
+}
 .signIn {
     background-color: #40B554;
     color: white;
     padding: 0.8rem;
     font-size: 1.7rem;
-    margin-left: 46%;
+    margin-left: 40px;
+    width: 200px;
     margin-right: 44%;
-    width: 7%;
     margin-top: 0.6rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
